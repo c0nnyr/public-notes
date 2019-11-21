@@ -1,1 +1,3 @@
-- [基于github+markdown+vscode+vim写作方案.md](notes/misc/基于github+markdown+vscode+vim写作方案.md)
+- notes
+  - notes/misc
+    - [基于github+markdown+vscode+vim写作方案.md](notes/misc/基于github+markdown+vscode+vim写作方案.md)
