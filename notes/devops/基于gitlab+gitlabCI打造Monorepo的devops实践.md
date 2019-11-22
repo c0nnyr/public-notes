@@ -1,6 +1,7 @@
 tag:gitlab CI lerna devops
 
 - [前言](#%e5%89%8d%e8%a8%80)
+- [现状](#%e7%8e%b0%e7%8a%b6)
 - [lerna](#lerna)
 - [gitlab & gitlab CI](#gitlab--gitlab-ci)
 
@@ -25,7 +26,13 @@ tag:gitlab CI lerna devops
 
 选择怎样的工具来支撑呢？我接触过的工具有TeamCity、Jenkins、GitlabCI，当然还有一些自研的或者其他部署工具扩展出来的CI（比如容器编排工具rancher这种。）。
 
-TeamCity社区版本免费可用，界面好看，配置也方便，支持的最大并发数有限。Jenkins完全开源，插件丰富，用心搞可以支撑任意你想做的东西。GitlabCI是gitlab自带，文档丰富，用心挖掘也能做很多事情。
+TeamCity社区版本免费可用，界面好看，配置也方便，支持的最大并发数有限。Jenkins完全开源，插件丰富，用心搞可以支撑任意你想做的东西。GitlabCI是gitlab自带，文档丰富，用心挖掘也能做很多事情。相似的还有Github的Action。
+
+## 现状
+
+我司使用gitlab做代码仓库，使用TeamCity做CI。方便吗？一般般。使用持续集成的时候，一个很大的困难是：如何版本控制CI的配置？因为CI复杂后，一不注意改错一个配置就可能导致CI失效，难查bug。CI配置的那些环境参数也是，最后部署出去用的是什么环境变量，如何管理这些环境变量，使用Jenkins或者Teamcity会有些头疼（TeamCity也有记录修改记录，不过没有特别直观，综合）。我希望的是，所有控制CI的参数、逻辑都可以用git来管理。一切影响devops的参数或者逻辑都可以版本控制。这也是我最终选择直接使用gitlab CI的原因。
+
+另外一个问题，面对不断增长的代码仓库（尤其是微服务、前端模块化后），改如何选择管理代码的方式。
 
 
 ## lerna
